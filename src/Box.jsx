@@ -2,15 +2,16 @@ import { useState, useContext} from 'react'
 import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
-export function Box() {
-    const [circulo, setCirculo] = useState(false)
+export function Box({id}) {
     const { turn, setTurn } = useContext(GameContext)
-    const [color, setColor] = useState("blue")
+    const [circulo, setCirculo] = useState(false)
     const [isClicked, setIsClicked] = useState(false);
+    const [color, setColor] = useState("blue")
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         setTurn(prev => !prev)
         setCirculo(true)
+        console.log(e.target.className)
         if(turn == true){
             setColor("blue")
         } else {
@@ -20,7 +21,7 @@ export function Box() {
     };
 
     return (
-        <div className="box" onClick={!isClicked ? handleClick : null} style={{ pointerEvents: isClicked ? 'none' : 'auto' }}>
+        <div className={`box ${id}`} onClick={!isClicked ? handleClick : null} style={{ pointerEvents: isClicked ? 'none' : 'auto' }}>
             {circulo && <Circle color={color}/>}
         </div>
     )

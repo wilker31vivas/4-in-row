@@ -4,15 +4,15 @@ import { Box } from './Box'
 import { GameContext } from './context/GameContext';
 
 function App() {
-  const boxes = Array.from({ length: 42 });
-  const {turn, setTurn} = useContext(GameContext)
+  const {boxes} = useContext(GameContext)
+  const {turn} = useContext(GameContext)
 
   return (
     <main>
       <h1>4 en filas</h1>
       <div className="grid">
         {boxes.map((_, i)=>{
-          return <Box key={i}></Box>
+          return <Box key={i} id={i}></Box>
         })}
       </div>
       <div>
