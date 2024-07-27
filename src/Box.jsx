@@ -1,45 +1,27 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useState, useContext} from 'react'
 import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
 export function Box() {
-    const divRef = useRef(null);
     const [circulo, setCirculo] = useState(false)
     const { turn, setTurn } = useContext(GameContext)
     const [color, setColor] = useState("blue")
+    const [isClicked, setIsClicked] = useState(false);
 
-    useEffect(() => {
-        const handleClick = () => {
-            console.log('Div clicked');
-            setCirculo(true);
-
-            if (divRef.current) {
-                setTurn(prev => !prev);
-                console.log(turn)
-                if (turn == true) {
-                    setColor("blue")
-                } else {
-                    setColor("red")
-                }
-                divRef.current.removeEventListener('click', handleClick);
-            }
-        };
-
-        const divElement = divRef.current;
-        if (divElement) {
-            divElement.addEventListener('click', handleClick);
-            console.log("evento agregado")
+    const handleClick = () => {
+        setTurn(prev => !prev)
+        setCirculo(true)
+        if(turn == true){
+            setColor("blue")
+        } else {
+            setColor("red")
         }
-
-        
-
-    }, [])
-
-
+        setIsClicked(true);
+    };
 
     return (
-        <div className="box" ref={divRef} >
-            {circulo && <Circle color={color} />}
+        <div className="box" onClick={!isClicked ? handleClick : null} style={{ pointerEvents: isClicked ? 'none' : 'auto' }}>
+            {circulo && <Circle color={color}/>}
         </div>
     )
 }

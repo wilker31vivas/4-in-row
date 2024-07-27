@@ -41,6 +41,7 @@ h1 {
   background-color: var(--background);
   max-width: 100%;
   min-height: 80px;
+  cursor: pointer;
 }
 
 .circle {
