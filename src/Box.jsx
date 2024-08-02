@@ -11,11 +11,14 @@ export function Box({ id, col }) {
     const handleClick = (e) => {
         const updatedArray = [...arrayCol];
 
-        if (arrayCol[col][5].length == 0) {
-            updatedArray[col][5] = true;
-            setArrayCol(updatedArray);
+        for(let i = 5; i >= 0; i--){
+            let index = updatedArray[col][i].length
+            if (index === 0){
+                updatedArray[col][i] = true;
+                 setArrayCol(updatedArray);
+                 break
+            } 
         }
-        console.log(col, id)
 
         setTurn(prev => !prev)
         setCirculo(true)
@@ -24,14 +27,10 @@ export function Box({ id, col }) {
     };
 
     const DetectarColumna = () => {
-        // arrayCol[col].forEach((element, index) => {
-        //     if(arrayCol[col][index].length > 0){
-        //         return console.log("hola")
-        //     } return null
-        // });
-        if (col == 0 && id == 5 && arrayCol[0][5] == true) {
+        if (arrayCol[col][id] == true) {
            return <Circle color={color}></Circle>
-         } return null
+         } 
+         return null
     }
 
     return (

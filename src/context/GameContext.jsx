@@ -20,7 +20,7 @@ export function GameContextProvider({ children }) {
     }
 
     useEffect(()=>{
-        console.log("longi", arrayCol[0][5].length)
+        console.log("longi", arrayCol[0].length)
     },[arrayCol])
 
 
