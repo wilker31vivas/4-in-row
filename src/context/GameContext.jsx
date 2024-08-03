@@ -4,22 +4,17 @@ export const GameContext = createContext();
 
 export function GameContextProvider({ children }) {
     const [turn, setTurn] = useState(true)
+    const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(()=> ({filled : false, color : null})))
     const boxes = Array.from({ length: 42 });
-    const [arrayCol, setArrayCol] = useState([
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]],
-        [[],[],[],[],[],[]]
-    ]);
+    const [arrayCol, setArrayCol] = useState(initialArrayCol);
 
     function reset(){
         setTurn(true)
     }
 
-    
+    useEffect(()=>{
+        console.log("longi", initialArrayCol)
+    },[initialArrayCol])
 
 
     return (

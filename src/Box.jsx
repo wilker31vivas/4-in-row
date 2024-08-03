@@ -8,31 +8,26 @@ export function Box({ id, col }) {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = (e) => {
+        if (isClicked) return;
         const updatedArray = [...arrayCol];
 
         for(let i = 5; i >= 0; i--){
-            let index = updatedArray[col][i].length
-            if (index === 0){
-                updatedArray[col][i] = true;
-                 setArrayCol(updatedArray);
+            let index = updatedArray[col][i].filled
+            if (!index){
+                updatedArray[col][i].filled = true;
+                updatedArray[col][i].color = turn ? 'blue' : 'red';
+                setArrayCol(updatedArray);
                  break
             } 
         }
 
         setTurn(prev => !prev)
-        setCirculo(true)
         setIsClicked(true);
     };
 
     const DetectarColumna = () => {
-        let color;
-        if(turn){
-            color = "blue";
-        } else {
-            color = "red"
-        }
-        if (arrayCol[col][id] == true) {
-           return <Circle color={color}></Circle>
+        if (arrayCol[col][id].filled) {
+            return <Circle color={arrayCol[col][id].color} />;
          } 
          return null
     }
