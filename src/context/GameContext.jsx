@@ -19,9 +19,7 @@ export function GameContextProvider({ children }) {
         setTurn(true)
     }
 
-    useEffect(()=>{
-        console.log("longi", arrayCol[0].length)
-    },[arrayCol])
+    
 
 
     return (
