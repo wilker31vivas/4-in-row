@@ -4,7 +4,7 @@ import { Box } from './Box'
 import { GameContext } from './context/GameContext';
 
 function App() {
-  const { boxes, turn, arrayCol } = useContext(GameContext)
+  const { turn, arrayCol } = useContext(GameContext)
 
   return (
     <main>

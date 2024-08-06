@@ -1,10 +1,9 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
 export function Box({ id, col }) {
     const { turn, setTurn, arrayCol, setArrayCol } = useContext(GameContext)
-    const [circulo, setCirculo] = useState(false)
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = (e) => {
@@ -29,8 +28,6 @@ export function Box({ id, col }) {
             console.log("eliminar evento")
         }
     };
-
-        
 
     const DetectarColumna = () => {
         if (arrayCol[col][id].filled) {
