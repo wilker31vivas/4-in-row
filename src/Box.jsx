@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
@@ -9,6 +9,8 @@ export function Box({ id, col }) {
 
     const handleClick = (e) => {
         if (isClicked) return;
+        console.log("cambiar color")
+        
         const updatedArray = [...arrayCol];
 
         for(let i = 5; i >= 0; i--){
@@ -22,8 +24,13 @@ export function Box({ id, col }) {
         }
 
         setTurn(prev => !prev)
-        setIsClicked(true);
+        if(arrayCol[col][0].filled == true){
+            setIsClicked(true);
+            console.log("eliminar evento")
+        }
     };
+
+        
 
     const DetectarColumna = () => {
         if (arrayCol[col][id].filled) {
