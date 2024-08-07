@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { resolve } from "../logic/constant";
 
 export const GameContext = createContext();
 
@@ -13,17 +14,9 @@ export function GameContextProvider({ children }) {
     }
 
     useEffect(()=>{
-        
+        const repuesta = resolve(arrayCol);
+        console.log(repuesta)
     },[arrayCol])
-
-    
-// 0: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 1: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 2: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 3: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 4: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 5: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-// 6: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
 
 
     return (

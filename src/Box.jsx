@@ -8,7 +8,6 @@ export function Box({ id, col }) {
 
     const handleClick = (e) => {
         if (isClicked) return;
-        console.log("cambiar color")
         
         const updatedArray = [...arrayCol];
 
