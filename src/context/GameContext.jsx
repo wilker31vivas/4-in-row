@@ -17,6 +17,9 @@ export function GameContextProvider({ children }) {
         resolveCol(arrayCol)
         const repuesta = wins.some(element => element)
         console.log(repuesta)
+        if(repuesta){
+            alert("ganaste")
+        }
     },[arrayCol])
 
 

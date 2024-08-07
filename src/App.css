@@ -29,7 +29,7 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(80px, 1fr));
+  grid-template-columns: repeat(7, minmax(50px, 1fr));
   grid-template-rows: repeat(6, auto);
   gap: 5px;
   border: var(--border-table) solid 3px;
@@ -40,14 +40,14 @@ h1 {
   border-radius: 50%;
   background-color: var(--background);
   max-width: 100%;
-  min-height: 80px;
+  min-height: 50px;
   cursor: pointer;
 }
 
 .circle {
   border-radius: 50%;
   max-width: 100%;
-  min-height: 80px;
+  min-height: 50px;
   transition: all .8s ease;
 }
 
@@ -61,4 +61,33 @@ h1 {
 
 .circle:active {
   background-color: aqua;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: red;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(80px, 1fr));
+    grid-template-rows: repeat(6, auto);
+    gap: 5px;
+    border: var(--border-table) solid 3px;
+    background-color: var(--table-bg-color);
+  }
+
+  .box, .box-1 {
+    border-radius: 50%;
+    background-color: var(--background);
+    max-width: 100%;
+    min-height: 80px;
+    cursor: pointer;
+  }
+
+  .circle {
+    border-radius: 50%;
+    max-width: 100%;
+    min-height: 80px;
+    transition: all .8s ease;
+  }
 }
