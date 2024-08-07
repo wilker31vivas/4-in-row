@@ -4,44 +4,44 @@ import { Box } from './Box'
 import { GameContext } from './context/GameContext';
 
 function App() {
-  const { turn, arrayCol } = useContext(GameContext)
+  const { turn, arrayBoxs } = useContext(GameContext)
 
   return (
     <main>
       <h1>4 en filas</h1>
       <div className="grid">
         <div className="col">
-          {arrayCol[0].map((_, i) => {
+          {arrayBoxs[0].map((_, i) => {
             return <Box key={i} id={i} col={0}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[1].map((_, i) => {
+          {arrayBoxs[1].map((_, i) => {
             return <Box key={i} id={i} col={1}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[2].map((_, i) => {
+          {arrayBoxs[2].map((_, i) => {
             return <Box key={i} id={i} col={2}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[3].map((_, i) => {
+          {arrayBoxs[3].map((_, i) => {
             return <Box key={i} id={i} col={3}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[4].map((_, i) => {
+          {arrayBoxs[4].map((_, i) => {
             return <Box key={i} id={i} col={4}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[5].map((_, i) => {
+          {arrayBoxs[5].map((_, i) => {
             return <Box key={i} id={i} col={5}></Box>
           })}
         </div>
         <div className="col">
-          {arrayCol[6].map((_, i) => {
+          {arrayBoxs[6].map((_, i) => {
             return <Box key={i} id={i} col={6}></Box>
           })}
         </div>

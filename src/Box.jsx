@@ -3,13 +3,13 @@ import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
 export function Box({ id, col }) {
-    const { turn, setTurn, arrayCol, setArrayCol } = useContext(GameContext)
+    const { turn, setTurn, arrayBoxs, setArrayCol } = useContext(GameContext)
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = (e) => {
         if (isClicked) return;
         
-        const updatedArray = [...arrayCol];
+        const updatedArray = [...arrayBoxs];
 
         for(let i = 5; i >= 0; i--){
             let index = updatedArray[col][i].filled
@@ -22,15 +22,15 @@ export function Box({ id, col }) {
         }
 
         setTurn(prev => !prev)
-        if(arrayCol[col][0].filled == true){
+        if(arrayBoxs[col][0].filled == true){
             setIsClicked(true);
             console.log("eliminar evento")
         }
     };
 
     const DetectarColumna = () => {
-        if (arrayCol[col][id].filled) {
-            return <Circle color={arrayCol[col][id].color} />;
+        if (arrayBoxs[col][id].filled) {
+            return <Circle color={arrayBoxs[col][id].color} />;
          } 
          return null
     }
