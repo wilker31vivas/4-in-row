@@ -40,7 +40,6 @@ export function resolveCol(array){
         if (detectarWin(win1) || detectarWin(win2) || detectarWin(win3)) {
             wins[0] = true;
         }
-
         
     }
     return false
