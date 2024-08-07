@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { resolve } from "../logic/constant";
+import { resolveCol, wins } from "../logic/constant";
 
 export const GameContext = createContext();
 
@@ -14,7 +14,8 @@ export function GameContextProvider({ children }) {
     }
 
     useEffect(()=>{
-        const repuesta = resolve(arrayCol);
+        resolveCol(arrayCol)
+        const repuesta = wins.some(element => element)
         console.log(repuesta)
     },[arrayCol])
 
