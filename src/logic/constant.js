@@ -14,14 +14,8 @@
 // 4: {filled: false, color: null}
 // 5: {filled: true, color: 'blue'}
 
-const arrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(()=> ({filled : false, color : undefined})))
-
-// array.forEach((element, index) => {
-//     element.forEach((elem => console.log(elem)))
-// });
 
 export function resolve(array){
-
     for (let index = 0; index < array.length; index++) {
         const element = array[index];
         const item1 = array[index][5]
@@ -29,16 +23,17 @@ export function resolve(array){
         const item3 = array[index][3]
         const item4 = array[index][2]
 
-        if(
-            item1.filled && item2.filled && item3.filled && item4.filled &&
-            item1.color == item2.color && item3.color == item4.color
-        ){
-            return true
-        } return false
+        const arrayCompleto = [item1, item2, item3, item4]
 
+        const isTrue = arrayCompleto.every(item => item.filled === true);
+        const isColor = arrayCompleto.every((item, _, arr) => item.color === arr[0].color);
+
+        if(isTrue && isColor){
+            return true
+        } 
         // for (let i = 0; i < element.length; i++){
         //     console.log(element[i])
         // }
-        
     }
+    return false
 }
