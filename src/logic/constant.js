@@ -15,6 +15,7 @@
 // 5: {filled: true, color: 'blue'}
 export const wins = []
 
+//21 posibilidades
 export function resolveCol(array){
     for (let index = 0; index < array.length; index++) {
 
@@ -45,6 +46,7 @@ export function resolveCol(array){
     return false
 }
 
+//24 posibilidades
 export function resolveRow(array, rowNum){
     for (let index = 0; index < array.length; index++) {
 
