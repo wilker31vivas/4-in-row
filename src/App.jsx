@@ -1,8 +1,10 @@
 import { useContext } from 'react'
 import './App.css'
+import './Modal.css'
 import { Box } from './Box'
 import { GameContext } from './context/GameContext';
 import { Circle } from './Circle';
+import Modal from './Modal.jsx';
 
 function App() {
   const { turn, arrayBoxs, reset } = useContext(GameContext)
@@ -51,6 +53,7 @@ function App() {
           return <Box key={i} id={i}></Box>
         })} */}
       </div>
+      <Modal></Modal>
       <button className='reset' onClick={()=> reset()}>Reset</button>
     </main>
   )
