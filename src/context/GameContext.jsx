@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { resolveCol, resolveRow, wins } from "../logic/constant";
+import { resolveCol, resolveRow, resolveDiagonal, wins } from "../logic/constant";
 
 export const GameContext = createContext();
 
@@ -8,14 +8,7 @@ export function GameContextProvider({ children }) {
     const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(() => ({ filled: false, color: null })))
     const boxes = Array.from({ length: 42 });
     const [arrayBoxs, setArrayCol] = useState(initialArrayCol);
-    const [items, setItems] = useState(() => {
-        let initialItems = {};
-        for (let i = 0; i < 42; i++) {
-            initialItems[`item${i}`] = false;
-        }
-        return initialItems;
-    });
-
+    const [flattenedArray, setflattenedArray] = useState(initialArrayCol.flat());
 
     function reset() {
         setTurn(true)
@@ -23,19 +16,16 @@ export function GameContextProvider({ children }) {
 
     useEffect(() => {
         resolveCol(arrayBoxs)
-        resolveRow(arrayBoxs, 5)
-        resolveRow(arrayBoxs, 4)
-        resolveRow(arrayBoxs, 3)
-        resolveRow(arrayBoxs, 2)
-        resolveRow(arrayBoxs, 1)
-        resolveRow(arrayBoxs, 0)
+        for (let i = 5; i >= 0; i--) {
+            resolveRow(arrayBoxs, i);
+        }
+        resolveDiagonal(flattenedArray)
         const repuesta = wins.some(element => element)
         console.log(repuesta)
-        console.log(items)
         if (repuesta) {
             alert("ganaste")
         }
-    }, [arrayBoxs])
+    }, [arrayBoxs, flattenedArray])
 
 
     return (
