@@ -13,7 +13,7 @@
 // 3: {filled: false, color: null}
 // 4: {filled: false, color: null}
 // 5: {filled: true, color: 'blue'}
-export const wins = Array(69).fill(false)
+export const wins = []
 
 export function resolveCol(array){
     for (let index = 0; index < array.length; index++) {
@@ -45,16 +45,16 @@ export function resolveCol(array){
     return false
 }
 
-export function resolveRowOne(array){
+export function resolveRow(array, rowNum){
     for (let index = 0; index < array.length; index++) {
 
-        const item1 = array[0][5]
-        const item2 = array[1][5]
-        const item3 = array[2][5]
-        const item4 = array[3][5]
-        const item5 = array[4][5]
-        const item6 = array[5][5]
-        const item7 = array[6][5]
+        const item1 = array[0][rowNum]
+        const item2 = array[1][rowNum]
+        const item3 = array[2][rowNum]
+        const item4 = array[3][rowNum]
+        const item5 = array[4][rowNum]
+        const item6 = array[5][rowNum]
+        const item7 = array[6][rowNum]
 
         const win1 = [item1, item2, item3, item4]
         const win2 = [item4, item5, item6, item7]
@@ -71,38 +71,6 @@ export function resolveRowOne(array){
 
         if (detectarWin(win1) || detectarWin(win2) || detectarWin(win3) || detectarWin(win4)) {
             wins[1] = true;
-        }
-        
-    }
-    return false
-}
-
-export function resolveRowTwo(array){
-    for (let index = 0; index < array.length; index++) {
-
-        const item1 = array[0][4]
-        const item2 = array[1][4]
-        const item3 = array[2][4]
-        const item4 = array[3][4]
-        const item5 = array[4][4]
-        const item6 = array[5][4]
-        const item7 = array[6][4]
-
-        const win1 = [item1, item2, item3, item4]
-        const win2 = [item4, item5, item6, item7]
-        const win3 = [item2, item3, item4, item5]
-        const win4 = [item3, item4, item5, item6]
-
-        function detectarWin(arrayWin){
-            const isTrue = arrayWin.every(item => item.filled === true);
-            const isColor = arrayWin.every((item, _, arr) => item.color === arr[0].color);
-            if(isTrue && isColor){
-                return true
-            } 
-        }
-
-        if (detectarWin(win1) || detectarWin(win2) || detectarWin(win3) || detectarWin(win4)) {
-            wins[2] = true;
         }
         
     }

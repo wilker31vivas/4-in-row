@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { resolveCol, resolveRowOne, resolveRowTwo, wins } from "../logic/constant";
+import { resolveCol, resolveRow, wins } from "../logic/constant";
 
 export const GameContext = createContext();
 
@@ -15,8 +15,12 @@ export function GameContextProvider({ children }) {
 
     useEffect(()=>{
         resolveCol(arrayBoxs)
-        resolveRowOne(arrayBoxs)
-        resolveRowTwo(arrayBoxs)
+        resolveRow(arrayBoxs, 5)
+        resolveRow(arrayBoxs, 4)
+        resolveRow(arrayBoxs, 3)
+        resolveRow(arrayBoxs, 2)
+        resolveRow(arrayBoxs, 1)
+        resolveRow(arrayBoxs, 0)
         const repuesta = wins.some(element => element)
         console.log(repuesta)
         if(repuesta){
