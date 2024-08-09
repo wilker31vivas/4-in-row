@@ -13,30 +13,43 @@
 }
 
 body {
-  background-color: var(--background);
+  background-image: url(./img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
 }
 
 h1 {
-  color: var(--title);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
+  color: #ffffff;
+  text-shadow: #474747 3px 5px 2px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(50px, 1fr));
-  grid-template-rows: repeat(6, auto);
   gap: 5px;
-  border: var(--border-table) solid 3px;
-  background-color: var(--table-bg-color);
+  border: 10px outset #b07847;
+  background: #b94f32;
+  background: -moz-radial-gradient(center, #b94f32 0%, #956e2a 100%);
+  background: -webkit-radial-gradient(center, #b94f32 0%, #956e2a 100%);
+  background: radial-gradient(ellipse at center, #b94f32 0%, #956e2a 100%);
 }
 
-.box, .box-1 {
+.col {
+  display: grid;
+  gap: 5px;
+}
+
+.box,
+.box-1 {
   border-radius: 50%;
   background-color: var(--background);
   max-width: 100%;
@@ -48,35 +61,113 @@ h1 {
   border-radius: 50%;
   max-width: 100%;
   min-height: 50px;
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 
 .red {
-  background-color: red;
+  background: #ce0000;
+  background: -moz-radial-gradient(center, #ce0000 0%, #2a2a2a 100%);
+  background: -webkit-radial-gradient(center, #ce0000 0%, #2a2a2a 100%);
+  background: radial-gradient(ellipse at center, #ce0000 0%, #2a2a2a 100%);
 }
 
 .blue {
-  background-color: blue;
+  background: #0932ce;
+  background: -moz-radial-gradient(center, #0932ce 0%, #2a2a2a 100%);
+  background: -webkit-radial-gradient(center, #0932ce 0%, #2a2a2a 100%);
+  background: radial-gradient(ellipse at center, #0932ce 0%, #2a2a2a 100%);
+}
+
+.square-blue,
+.square-red {
+  background: #0932ce;
+  max-width: 50px;
+  min-height: 50px;
+  transition: all 0.8s ease;
 }
 
 .circle:active {
   background-color: aqua;
 }
 
+/* From Uiverse.io by cssbuttons-io */
+button {
+  appearance: button;
+  background-color: #1899d6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 19px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+button:after {
+  background-clip: padding-box;
+  background-color: #1cb0f6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button:main,
+button:focus {
+  user-select: auto;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  cursor: auto;
+}
+
+button:active:after {
+  border-width: 0 0 0px;
+}
+
+button:active {
+  padding-bottom: 10px;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     background-color: red;
   }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(7, minmax(80px, 1fr));
-    grid-template-rows: repeat(6, auto);
-    gap: 5px;
-    border: var(--border-table) solid 3px;
-    background-color: var(--table-bg-color);
   }
 
-  .box, .box-1 {
+  .box,
+  .box-1 {
     border-radius: 50%;
     background-color: var(--background);
     max-width: 100%;
@@ -88,6 +179,6 @@ h1 {
     border-radius: 50%;
     max-width: 100%;
     min-height: 80px;
-    transition: all .8s ease;
+    transition: all 0.8s ease;
   }
 }

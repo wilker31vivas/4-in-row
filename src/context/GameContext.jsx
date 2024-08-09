@@ -7,11 +7,14 @@ export function GameContextProvider({ children }) {
     const [turn, setTurn] = useState(true)
     const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(() => ({ filled: false, color: null })))
     const boxes = Array.from({ length: 42 });
-    const [arrayBoxs, setArrayCol] = useState(initialArrayCol);
-    const [flattenedArray, setflattenedArray] = useState(initialArrayCol.flat());
+    const [arrayBoxs, setArrayBoxs] = useState(initialArrayCol);
+    const [flattenedArray, setFlattenedArray] = useState(initialArrayCol.flat());
 
     function reset() {
-        setTurn(true)
+        setTurn(true);
+        setArrayBoxs(initialArrayCol); // Resetea el estado de las casillas
+        setFlattenedArray(initialArrayCol.flat()); // Resetea el array aplanado
+        wins.fill(false); // Resetea el estado de las victorias
     }
 
     useEffect(() => {
@@ -29,7 +32,7 @@ export function GameContextProvider({ children }) {
 
 
     return (
-        <GameContext.Provider value={{ turn, setTurn, boxes, reset, arrayBoxs, setArrayCol }}>
+        <GameContext.Provider value={{ turn, setTurn, boxes, reset, arrayBoxs, setArrayBoxs }}>
             {children}
         </GameContext.Provider>
     )

@@ -2,13 +2,14 @@ import { useContext } from 'react'
 import './App.css'
 import { Box } from './Box'
 import { GameContext } from './context/GameContext';
+import { Circle } from './Circle';
 
 function App() {
-  const { turn, arrayBoxs } = useContext(GameContext)
+  const { turn, arrayBoxs, reset } = useContext(GameContext)
 
   return (
     <main>
-      <h1>4 en filas</h1>
+      <h1>Conecta 4</h1>
       <div className="grid">
         <div className="col">
           {arrayBoxs[0].map((_, i) => {
@@ -50,10 +51,7 @@ function App() {
           return <Box key={i} id={i}></Box>
         })} */}
       </div>
-      <button>Reiniciar</button>
-      <div>
-        <h2>El turno es de : {turn == true ? 'azul' : 'rojo'}</h2>
-      </div>
+      <button className='reset' onClick={()=> reset()}>Reset</button>
     </main>
   )
 }

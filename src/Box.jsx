@@ -3,7 +3,7 @@ import { Circle } from "./Circle"
 import { GameContext } from './context/GameContext';
 
 export function Box({ id, col }) {
-    const { turn, setTurn, arrayBoxs, setArrayCol } = useContext(GameContext)
+    const { turn, setTurn, arrayBoxs, setArrayBoxs } = useContext(GameContext)
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = (e) => {
@@ -16,7 +16,7 @@ export function Box({ id, col }) {
             if (!index){
                 updatedArray[col][i].filled = true;
                 updatedArray[col][i].color = turn ? 'blue' : 'red';
-                setArrayCol(updatedArray);
+                setArrayBoxs(updatedArray);
                  break
             } 
         }
