@@ -71,6 +71,9 @@ export function resolveRow(array, rowNum){
     return false
 }
 
+//se crea un array de 42 item, cuando una casilla se active, ese item pasa a ser true, y despues detecta
+const arrayItem = Array(42).fill(null);
+
 export function resolveDiagonal(array, rowNum){
     for (let index = 0; index < array.length; index++) {
 
