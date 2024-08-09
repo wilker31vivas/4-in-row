@@ -37,6 +37,7 @@ export function Box({ id, col }) {
 
     return (
         <div className={`box ${id}`} onClick={handleClick}>
+            <span>{id}</span>
             <DetectarColumna></DetectarColumna>
         </div>
     )

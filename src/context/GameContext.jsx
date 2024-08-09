@@ -5,15 +5,23 @@ export const GameContext = createContext();
 
 export function GameContextProvider({ children }) {
     const [turn, setTurn] = useState(true)
-    const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(()=> ({filled : false, color : null})))
+    const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(() => ({ filled: false, color: null })))
     const boxes = Array.from({ length: 42 });
     const [arrayBoxs, setArrayCol] = useState(initialArrayCol);
+    const [items, setItems] = useState(() => {
+        let initialItems = {};
+        for (let i = 0; i < 42; i++) {
+            initialItems[`item${i}`] = false;
+        }
+        return initialItems;
+    });
 
-    function reset(){
+
+    function reset() {
         setTurn(true)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         resolveCol(arrayBoxs)
         resolveRow(arrayBoxs, 5)
         resolveRow(arrayBoxs, 4)
@@ -23,10 +31,11 @@ export function GameContextProvider({ children }) {
         resolveRow(arrayBoxs, 0)
         const repuesta = wins.some(element => element)
         console.log(repuesta)
-        if(repuesta){
+        console.log(items)
+        if (repuesta) {
             alert("ganaste")
         }
-    },[arrayBoxs])
+    }, [arrayBoxs])
 
 
     return (
