@@ -78,6 +78,14 @@ h1 {
   background: radial-gradient(ellipse at center, #0932ce 0%, #2a2a2a 100%);
 }
 
+.blue-text {
+  color: #0932ce
+}
+
+.red-text {
+  color: #ce0000;
+}
+
 .square-blue,
 .square-red {
   background: #0932ce;

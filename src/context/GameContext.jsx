@@ -10,6 +10,17 @@ export function GameContextProvider({ children }) {
     const [arrayBoxs, setArrayBoxs] = useState(initialArrayCol);
     const [flattenedArray, setFlattenedArray] = useState(initialArrayCol.flat());
 
+    const [modal, setModal] = useState(false);
+    const toggleModal = () => {
+        setModal(!modal);
+      };
+    
+      if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
+
     function reset() {
         setTurn(true);
         setArrayBoxs(initialArrayCol); // Resetea el estado de las casillas
@@ -26,13 +37,13 @@ export function GameContextProvider({ children }) {
         const repuesta = wins.some(element => element)
         console.log(repuesta)
         if (repuesta) {
-            alert("ganaste")
+            toggleModal()
         }
     }, [arrayBoxs, flattenedArray])
 
 
     return (
-        <GameContext.Provider value={{ turn, setTurn, boxes, reset, arrayBoxs, setArrayBoxs }}>
+        <GameContext.Provider value={{ turn, setTurn, boxes, reset, arrayBoxs, setArrayBoxs, toggleModal, modal }}>
             {children}
         </GameContext.Provider>
     )
