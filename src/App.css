@@ -94,10 +94,6 @@ h1 {
   transition: all 0.8s ease;
 }
 
-.circle:active {
-  background-color: aqua;
-}
-
 /* From Uiverse.io by cssbuttons-io */
 button {
   appearance: button;
