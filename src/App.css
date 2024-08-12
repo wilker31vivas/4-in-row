@@ -22,7 +22,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -88,10 +88,23 @@ h1 {
 
 .square-blue,
 .square-red {
-  background: #0932ce;
+  width: 50px;
   max-width: 50px;
   min-height: 50px;
   transition: all 0.8s ease;
+}
+
+.square-blue {
+  background: #0932ce;
+}
+
+.square-red {
+  background: #ce0000;
+}
+
+.turn-box {
+  display: flex; 
+  flex-direction: row;
 }
 
 /* From Uiverse.io by cssbuttons-io */

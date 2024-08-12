@@ -5,9 +5,10 @@ import { Box } from './Box'
 import { GameContext } from './context/GameContext';
 import { Circle } from './Circle';
 import Modal from './Modal.jsx';
+import { Turn } from './Turn.jsx';
 
 function App() {
-  const {arrayBoxs, reset, modal } = useContext(GameContext)
+  const { arrayBoxs, reset, modal } = useContext(GameContext)
 
   return (
     <main>
@@ -54,6 +55,7 @@ function App() {
         })} */}
       </div>
       <Modal></Modal>
+      <Turn></Turn>
       {!modal && (
         <button className='reset' onClick={() => reset()}>Reset</button>
       )}
