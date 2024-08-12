@@ -1,9 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { resolveCol, resolveRow, resolveDiagonal, wins } from "../logic/constant";
-
+import confetti from "canvas-confetti";
+import sonido from "../sound/sound-win.mp3"
 export const GameContext = createContext();
 
 export function GameContextProvider({ children }) {
+    const reproducirSonido = () =>{
+        const audio = new Audio(sonido)
+        audio.play()
+    }
     const [turn, setTurn] = useState(true)
     const initialArrayCol = Array(7).fill(null).map(() => Array(6).fill(null).map(() => ({ filled: false, color: null })))
     const boxes = Array.from({ length: 42 });
@@ -38,6 +43,8 @@ export function GameContextProvider({ children }) {
         console.log(repuesta)
         if (repuesta) {
             toggleModal()
+            confetti()
+            reproducirSonido()
         }
     }, [arrayBoxs, flattenedArray])
 

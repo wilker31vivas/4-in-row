@@ -7,7 +7,7 @@ import { Circle } from './Circle';
 import Modal from './Modal.jsx';
 
 function App() {
-  const { turn, arrayBoxs, reset, modal } = useContext(GameContext)
+  const {arrayBoxs, reset, modal } = useContext(GameContext)
 
   return (
     <main>
